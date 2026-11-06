@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Claude ALLOZOUNHOUE · Portfolio</title>
+<meta name="description" content="Portfolio de Claude ALLOZOUNHOUE (Mr Claudy) : photographie, design graphique, cadrage et montage vidéo, motion design. Cotonou, Bénin.">
+<meta property="og:title" content="Claude ALLOZOUNHOUE · Portfolio">
+<meta property="og:description" content="Portfolio de Claude ALLOZOUNHOUE (Mr Claudy) : photographie, design graphique, cadrage et montage vidéo, motion design. Cotonou, Bénin.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="theme-color" content="#0a0c11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234fe3cf'/%3E%3Cstop offset='1' stop-color='%235b9bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='%230a0c11'/%3E%3Ccircle cx='16' cy='16' r='7' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+/* Layout concept: a floating glass nav, a bold name over a soft colour glow, then one rounded card per service that opens into its gallery. Contact closes the page in a gradient-framed card, signed in small type. */
+:root {
+  --bg: #0a0c11;
+  --card: #12151d;
+  --card2: #1a1e29;
+  --line: #262b39;
+  --fg: #f1f3f8;
+  --muted: #98a1b3;
+  --accent: #4fe3cf;
+  --accent2: #5b9bff;
+  --grad: linear-gradient(120deg, #4fe3cf 0%, #5b9bff 100%);
+  --accent-ink: #04201c;
+  --glow1: rgba(79, 227, 207, .16);
+  --glow2: rgba(91, 155, 255, .15);
+  --nav-bg: rgba(14, 16, 22, .72);
+  --danger: #ff8575;
+  --danger-ink: #2a0c07;
+  --font-display: 'Syne', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f3f5f9;
+    --card: #ffffff;
+    --card2: #eef1f6;
+    --line: #dde2ec;
+    --fg: #111522;
+    --muted: #596376;
+    --accent: #0a8f80;
+    --accent2: #2563eb;
+    --grad: linear-gradient(120deg, #0a8f80 0%, #2563eb 100%);
+    --accent-ink: #ffffff;
+    --glow1: rgba(10, 143, 128, .12);
+    --glow2: rgba(37, 99, 235, .10);
+    --nav-bg: rgba(255, 255, 255, .78);
+    --danger: #b8372a;
+    --danger-ink: #ffffff;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --card2: #eef1f6;
+  --line: #dde2ec;
+  --fg: #111522;
+  --muted: #596376;
+  --accent: #0a8f80;
+  --accent2: #2563eb;
+  --grad: linear-gradient(120deg, #0a8f80 0%, #2563eb 100%);
+  --accent-ink: #ffffff;
+  --glow1: rgba(10, 143, 128, .12);
+  --glow2: rgba(37, 99, 235, .10);
+  --nav-bg: rgba(255, 255, 255, .78);
+  --danger: #b8372a;
+  --danger-ink: #ffffff;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+#app {
+  position: relative; overflow-x: clip;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 40px;
+}
+.glow { position: absolute; left: 0; right: 0; top: 0; height: 680px; pointer-events: none; background: radial-gradient(60% 70% at 12% 0%, var(--glow1), transparent 70%), radial-gradient(50% 60% at 92% 8%, var(--glow2), transparent 70%); }
+.col { position: relative; z-index: 1; max-width: 1080px; margin-inline: auto; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Floating nav */
+.nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 10px); z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; padding: 8px 8px 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--nav-bg); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; font: 600 14px/1 var(--font-body); }
+.brand .dot { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--grad); }
+.nav .btn { flex: none; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 10px 22px; border-radius: 999px; border: 1px solid transparent; background: var(--grad); color: var(--accent-ink); font: 600 15px/1.2 var(--font-body); text-decoration: none; cursor: pointer; transition: transform .15s ease, opacity .15s ease, border-color .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--fg); }
+.btn.small { min-height: 38px; padding: 6px 16px; font-size: 14px; }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; align-items: center; padding-block: 52px 44px; }
+.hero-text { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.eyebrow { margin: 0; font: 500 12px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.name { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+h1 { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font: 800 clamp(1.4rem, 5.4vw, 2.9rem)/1.1 var(--font-display); letter-spacing: 0; }
+h1 span { white-space: nowrap; }
+h1 .grad { padding: 0 .18em .06em 0; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.byline { margin: 0; font: 300 14px/1 var(--font-body); letter-spacing: .22em; color: var(--muted); }
+.lead { margin: 0; max-width: 56ch; font-size: 1.0625rem; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--fg); font: 500 14px/1 var(--font-body); cursor: pointer; transition: border-color .2s ease, transform .15s ease; }
+.chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (min-width: 761px) {
+  .hero.has-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 56px; }
+  .hero.has-hero h1 { font-size: clamp(1.4rem, 3.4vw, 2.9rem); }
+}
+.hero-box { min-width: 0; }
+.hero-photo { display: block; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px; background: var(--card2); box-shadow: 0 0 0 1px var(--line), 0 40px 70px -40px rgba(0, 0, 0, .7); }
+.hero-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 3; padding: 20px; border: 1px dashed var(--line); border-radius: 28px; color: var(--muted); text-align: center; font-size: 14px; }
+.hero-tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.hero-box .status { margin-top: 8px; }
+
+/* Admin bar */
+.adminbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 28px; padding: 12px 16px; border: 1px solid var(--accent); border-radius: 16px; background: var(--card); font-size: 14px; }
+.adminbar .tag { padding: 5px 9px; border-radius: 6px; background: var(--grad); color: var(--accent-ink); font: 500 11px/1 var(--font-mono); letter-spacing: .14em; }
+.adminbar p { margin: 0; min-width: 0; color: var(--muted); }
+
+/* Service cards */
+.rows-label { margin: 0 0 14px; font: 500 12px/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.rows { display: flex; flex-direction: column; gap: 12px; }
+.row { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 84px); border: 1px solid var(--line); border-radius: 24px; background: var(--card); transition: border-color .2s ease, box-shadow .3s ease; }
+.row:hover { border-color: var(--muted); }
+.row.is-open { border-color: var(--accent); box-shadow: 0 24px 60px -36px var(--glow1); }
+.row h2 { margin: 0; font: inherit; }
+.row-head { display: flex; align-items: center; gap: 16px; width: 100%; padding: 20px 22px; text-align: left; cursor: pointer; background: none; border: 0; border-radius: 24px; }
+.row-ico { flex: none; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 16px; background: var(--card2); color: var(--accent); }
+.row-ico svg { width: 26px; height: 26px; }
+.row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.row-title { font: 700 clamp(1.15rem, 3.6vw, 1.7rem)/1.15 var(--font-display); letter-spacing: -.01em; text-wrap: balance; }
+.row-desc { color: var(--muted); font-size: 14.5px; }
+.row-count { align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: var(--card2); font: 500 12px/1.2 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row-thumb { flex: none; width: 112px; height: 78px; border-radius: 14px; object-fit: cover; background: var(--card2); }
+.row-arrow { flex: none; position: relative; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; transition: transform .25s ease, background .2s ease, border-color .2s ease; }
+.row-arrow::before, .row-arrow::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; margin: -1px 0 0 -7px; border-radius: 1px; background: var(--fg); }
+.row-arrow::after { transform: rotate(90deg); }
+.row-head:hover .row-arrow { background: var(--grad); border-color: transparent; }
+.row-head:hover .row-arrow::before, .row-head:hover .row-arrow::after { background: var(--accent-ink); }
+.row.is-open .row-arrow { transform: rotate(45deg); border-color: var(--accent); }
+.row-body { padding: 0 22px 24px; display: flex; flex-direction: column; gap: 18px; animation: open .25s ease; }
+@keyframes open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* Gallery */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.tile { position: relative; margin: 0; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; border-radius: 14px; background: var(--card2); }
+.tile-btn { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.tile img, .tile video { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.tile-btn:hover img, .tile-btn:hover video { transform: scale(1.04); }
+.play { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: rgba(10, 12, 16, .62); color: #fff; pointer-events: none; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.tile-link { display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; width: 100%; height: 100%; padding: 16px; color: var(--fg); text-decoration: none; background: var(--card2); border: 1px solid var(--line); border-radius: 14px; }
+.tile-link .play { left: 16px; top: 16px; margin: 0; background: var(--grad); color: var(--accent-ink); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.tile-link:hover { border-color: var(--accent); }
+.tile-title { font: 700 1.15rem/1.2 var(--font-display); overflow-wrap: anywhere; }
+.tile-host { font: 400 12px/1.2 var(--font-mono); color: var(--muted); overflow-wrap: anywhere; }
+.del { position: absolute; top: 8px; right: 8px; padding: 7px 12px; border: 0; border-radius: 999px; background: rgba(10, 12, 16, .72); color: #fff; font: 500 12px/1 var(--font-body); cursor: pointer; }
+.del.confirm { background: var(--danger); color: var(--danger-ink); }
+.empty { margin: 0; padding: 28px 20px; border: 1px dashed var(--line); border-radius: 14px; color: var(--muted); }
+
+/* Admin tools */
+.tools { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--card2); }
+.tools-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hint { margin: 0; font-size: 13px; color: var(--muted); }
+.status { margin: 0; min-height: 1.4em; font: 400 13px/1.4 var(--font-mono); color: var(--fg); overflow-wrap: anywhere; }
+.status.err { color: var(--danger); }
+.linkform { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; align-items: end; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field label { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.field input { width: 100%; min-height: 46px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--fg); }
+.linkform .actions { display: flex; flex-wrap: wrap; gap: 10px; grid-column: 1 / -1; }
+
+/* Contact */
+.contact { padding-block: 64px 0; }
+.contact-card { display: flex; flex-direction: column; gap: 24px; padding: clamp(24px, 5vw, 52px); border: 1px solid transparent; border-radius: 28px; background: linear-gradient(var(--card), var(--card)) padding-box, var(--grad) border-box; }
+.contact h2 { margin: 0; font: 800 clamp(1.8rem, 5.6vw, 3.2rem)/1.05 var(--font-display); letter-spacing: -.015em; text-wrap: balance; }
+.contact p { margin: 0; max-width: 52ch; color: var(--muted); }
+.contact-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.contact-item { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card2); min-width: 0; }
+.contact-item .k { flex-basis: 100%; font: 500 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.contact-item .v { min-width: 0; font: 500 1.05rem/1.3 var(--font-body); overflow-wrap: anywhere; user-select: all; }
+.sign { margin: 44px 0 0; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; font: 300 13px/1 var(--font-body); letter-spacing: .22em; text-transform: none; color: var(--muted); }
+
+/* Lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; background: rgba(8, 9, 12, .94); padding: calc(64px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(56px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lb-stage { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-width: 0; }
+.lb-stage img, .lb-stage video { max-width: 100%; max-height: 100%; border-radius: 8px; background: #000; }
+.lb button { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 50%; background: rgba(20, 22, 28, .8); color: #fff; cursor: pointer; font-size: 20px; line-height: 1; }
+.lb button:hover { border-color: #fff; }
+.lb-close { top: calc(10px + env(safe-area-inset-top, 0px)); right: calc(10px + env(safe-area-inset-right, 0px)); }
+.lb-prev { left: calc(8px + env(safe-area-inset-left, 0px)); top: 50%; margin-top: -22px; }
+.lb-next { right: calc(8px + env(safe-area-inset-right, 0px)); top: 50%; margin-top: -22px; }
+.lb-count { position: absolute; left: 0; right: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); text-align: center; font: 400 13px/1 var(--font-mono); color: #d5d8de; }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 60; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 18px; border-radius: 999px; background: var(--fg); color: var(--bg); font: 500 14px/1.3 var(--font-body); }
+
+@media (max-width: 700px) {
+  .row-thumb { display: none; }
+  .row-head { padding: 16px; gap: 12px; }
+  .row-ico { width: 46px; height: 46px; border-radius: 14px; }
+  .row-ico svg { width: 22px; height: 22px; }
+  .row-body { padding: 0 14px 18px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+@media (max-width: 560px) {
+  .hero { padding-block: 40px 32px; }
+  .cta .btn { flex: 1 1 100%; }
+  .hero-tools .btn.small, .tools-actions .btn { flex: 1 1 auto; }
+  .contact { padding-block: 48px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+.more{display:flex;justify-content:center;margin-top:6px}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>window.PORTFOLIO_DATA = {"items": {"photographie": [{"type": "image", "t": "img/t/photographie-001.jpg", "f": "img/f/photographie-001.jpg"}, {"type": "image", "t": "img/t/photographie-002.jpg", "f": "img/f/photographie-002.jpg"}, {"type": "image", "t": "img/t/photographie-003.jpg", "f": "img/f/photographie-003.jpg"}, {"type": "image", "t": "img/t/photographie-004.jpg", "f": "img/f/photographie-004.jpg"}, {"type": "image", "t": "img/t/photographie-005.jpg", "f": "img/f/photographie-005.jpg"}, {"type": "image", "t": "img/t/photographie-006.jpg", "f": "img/f/photographie-006.jpg"}, {"type": "image", "t": "img/t/photographie-007.jpg", "f": "img/f/photographie-007.jpg"}, {"type": "image", "t": "img/t/photographie-008.jpg", "f": "img/f/photographie-008.jpg"}, {"type": "image", "t": "img/t/photographie-009.jpg", "f": "img/f/photographie-009.jpg"}, {"type": "image", "t": "img/t/photographie-010.jpg", "f": "img/f/photographie-010.jpg"}, {"type": "image", "t": "img/t/photographie-011.jpg", "f": "img/f/photographie-011.jpg"}, {"type": "image", "t": "img/t/photographie-012.jpg", "f": "img/f/photographie-012.jpg"}, {"type": "image", "t": "img/t/photographie-013.jpg", "f": "img/f/photographie-013.jpg"}, {"type": "image", "t": "img/t/photographie-014.jpg", "f": "img/f/photographie-014.jpg"}, {"type": "image", "t": "img/t/photographie-015.jpg", "f": "img/f/photographie-015.jpg"}, {"type": "image", "t": "img/t/photographie-016.jpg", "f": "img/f/photographie-016.jpg"}, {"type": "image", "t": "img/t/photographie-017.jpg", "f": "img/f/photographie-017.jpg"}, {"type": "image", "t": "img/t/photographie-018.jpg", "f": "img/f/photographie-018.jpg"}, {"type": "image", "t": "img/t/photographie-019.jpg", "f": "img/f/photographie-019.jpg"}, {"type": "image", "t": "img/t/photographie-020.jpg", "f": "img/f/photographie-020.jpg"}, {"type": "image", "t": "img/t/photographie-021.jpg", "f": "img/f/photographie-021.jpg"}, {"type": "image", "t": "img/t/photographie-022.jpg", "f": "img/f/photographie-022.jpg"}, {"type": "image", "t": "img/t/photographie-023.jpg", "f": "img/f/photographie-023.jpg"}, {"type": "image", "t": "img/t/photographie-024.jpg", "f": "img/f/photographie-024.jpg"}, {"type": "image", "t": "img/t/photographie-025.jpg", "f": "img/f/photographie-025.jpg"}, {"type": "image", "t": "img/t/photographie-026.jpg", "f": "img/f/photographie-026.jpg"}, {"type": "image", "t": "img/t/photographie-027.jpg", "f": "img/f/photographie-027.jpg"}, {"type": "image", "t": "img/t/photographie-028.jpg", "f": "img/f/photographie-028.jpg"}, {"type": "image", "t": "img/t/photographie-029.jpg", "f": "img/f/photographie-029.jpg"}, {"type": "image", "t": "img/t/photographie-030.jpg", "f": "img/f/photographie-030.jpg"}, {"type": "image", "t": "img/t/photographie-031.jpg", "f": "img/f/photographie-031.jpg"}, {"type": "image", "t": "img/t/photographie-032.jpg", "f": "img/f/photographie-032.jpg"}, {"type": "image", "t": "img/t/photographie-033.jpg", "f": "img/f/photographie-033.jpg"}, {"type": "image", "t": "img/t/photographie-034.jpg", "f": "img/f/photographie-034.jpg"}, {"type": "image", "t": "img/t/photographie-035.jpg", "f": "img/f/photographie-035.jpg"}, {"type": "image", "t": "img/t/photographie-036.jpg", "f": "img/f/photographie-036.jpg"}, {"type": "image", "t": "img/t/photographie-037.jpg", "f": "img/f/photographie-037.jpg"}, {"type": "image", "t": "img/t/photographie-038.jpg", "f": "img/f/photographie-038.jpg"}, {"type": "image", "t": "img/t/photographie-039.jpg", "f": "img/f/photographie-039.jpg"}, {"type": "image", "t": "img/t/photographie-040.jpg", "f": "img/f/photographie-040.jpg"}, {"type": "image", "t": "img/t/photographie-041.jpg", "f": "img/f/photographie-041.jpg"}, {"type": "image", "t": "img/t/photographie-042.jpg", "f": "img/f/photographie-042.jpg"}, {"type": "image", "t": "img/t/photographie-043.jpg", "f": "img/f/photographie-043.jpg"}, {"type": "image", "t": "img/t/photographie-044.jpg", "f": "img/f/photographie-044.jpg"}, {"type": "image", "t": "img/t/photographie-045.jpg", "f": "img/f/photographie-045.jpg"}, {"type": "image", "t": "img/t/photographie-046.jpg", "f": "img/f/photographie-046.jpg"}, {"type": "image", "t": "img/t/photographie-047.jpg", "f": "img/f/photographie-047.jpg"}, {"type": "image", "t": "img/t/photographie-048.jpg", "f": "img/f/photographie-048.jpg"}, {"type": "image", "t": "img/t/photographie-049.jpg", "f": "img/f/photographie-049.jpg"}, {"type": "image", "t": "img/t/photographie-050.jpg", "f": "img/f/photographie-050.jpg"}, {"type": "image", "t": "img/t/photographie-051.jpg", "f": "img/f/photographie-051.jpg"}, {"type": "image", "t": "img/t/photographie-052.jpg", "f": "img/f/photographie-052.jpg"}, {"type": "image", "t": "img/t/photographie-053.jpg", "f": "img/f/photographie-053.jpg"}, {"type": "image", "t": "img/t/photographie-054.jpg", "f": "img/f/photographie-054.jpg"}, {"type": "image", "t": "img/t/photographie-055.jpg", "f": "img/f/photographie-055.jpg"}, {"type": "image", "t": "img/t/photographie-056.jpg", "f": "img/f/photographie-056.jpg"}, {"type": "image", "t": "img/t/photographie-057.jpg", "f": "img/f/photographie-057.jpg"}, {"type": "image", "t": "img/t/photographie-058.jpg", "f": "img/f/photographie-058.jpg"}, {"type": "image", "t": "img/t/photographie-059.jpg", "f": "img/f/photographie-059.jpg"}, {"type": "image", "t": "img/t/photographie-060.jpg", "f": "img/f/photographie-060.jpg"}, {"type": "image", "t": "img/t/photographie-061.jpg", "f": "img/f/photographie-061.jpg"}, {"type": "image", "t": "img/t/photographie-062.jpg", "f": "img/f/photographie-062.jpg"}, {"type": "image", "t": "img/t/photographie-063.jpg", "f": "img/f/photographie-063.jpg"}, {"type": "image", "t": "img/t/photographie-064.jpg", "f": "img/f/photographie-064.jpg"}, {"type": "image", "t": "img/t/photographie-065.jpg", "f": "img/f/photographie-065.jpg"}, {"type": "image", "t": "img/t/photographie-066.jpg", "f": "img/f/photographie-066.jpg"}, {"type": "image", "t": "img/t/photographie-067.jpg", "f": "img/f/photographie-067.jpg"}, {"type": "image", "t": "img/t/photographie-068.jpg", "f": "img/f/photographie-068.jpg"}, {"type": "image", "t": "img/t/photographie-069.jpg", "f": "img/f/photographie-069.jpg"}, {"type": "image", "t": "img/t/photographie-070.jpg", "f": "img/f/photographie-070.jpg"}, {"type": "image", "t": "img/t/photographie-071.jpg", "f": "img/f/photographie-071.jpg"}, {"type": "image", "t": "img/t/photographie-072.jpg", "f": "img/f/photographie-072.jpg"}, {"type": "image", "t": "img/t/photographie-073.jpg", "f": "img/f/photographie-073.jpg"}, {"type": "image", "t": "img/t/photographie-074.jpg", "f": "img/f/photographie-074.jpg"}, {"type": "image", "t": "img/t/photographie-075.jpg", "f": "img/f/photographie-075.jpg"}, {"type": "image", "t": "img/t/photographie-076.jpg", "f": "img/f/photographie-076.jpg"}, {"type": "image", "t": "img/t/photographie-077.jpg", "f": "img/f/photographie-077.jpg"}, {"type": "image", "t": "img/t/photographie-078.jpg", "f": "img/f/photographie-078.jpg"}, {"type": "image", "t": "img/t/photographie-079.jpg", "f": "img/f/photographie-079.jpg"}, {"type": "image", "t": "img/t/photographie-080.jpg", "f": "img/f/photographie-080.jpg"}, {"type": "image", "t": "img/t/photographie-081.jpg", "f": "img/f/photographie-081.jpg"}, {"type": "image", "t": "img/t/photographie-082.jpg", "f": "img/f/photographie-082.jpg"}, {"type": "image", "t": "img/t/photographie-083.jpg", "f": "img/f/photographie-083.jpg"}, {"type": "image", "t": "img/t/photographie-084.jpg", "f": "img/f/photographie-084.jpg"}, {"type": "image", "t": "img/t/photographie-085.jpg", "f": "img/f/photographie-085.jpg"}, {"type": "image", "t": "img/t/photographie-086.jpg", "f": "img/f/photographie-086.jpg"}, {"type": "image", "t": "img/t/photographie-087.jpg", "f": "img/f/photographie-087.jpg"}, {"type": "image", "t": "img/t/photographie-088.jpg", "f": "img/f/photographie-088.jpg"}, {"type": "image", "t": "img/t/photographie-089.jpg", "f": "img/f/photographie-089.jpg"}, {"type": "image", "t": "img/t/photographie-090.jpg", "f": "img/f/photographie-090.jpg"}, {"type": "image", "t": "img/t/photographie-091.jpg", "f": "img/f/photographie-091.jpg"}, {"type": "image", "t": "img/t/photographie-092.jpg", "f": "img/f/photographie-092.jpg"}, {"type": "image", "t": "img/t/photographie-093.jpg", "f": "img/f/photographie-093.jpg"}, {"type": "image", "t": "img/t/photographie-094.jpg", "f": "img/f/photographie-094.jpg"}, {"type": "image", "t": "img/t/photographie-095.jpg", "f": "img/f/photographie-095.jpg"}, {"type": "image", "t": "img/t/photographie-096.jpg", "f": "img/f/photographie-096.jpg"}, {"type": "image", "t": "img/t/photographie-097.jpg", "f": "img/f/photographie-097.jpg"}, {"type": "image", "t": "img/t/photographie-098.jpg", "f": "img/f/photographie-098.jpg"}, {"type": "image", "t": "img/t/photographie-099.jpg", "f": "img/f/photographie-099.jpg"}, {"type": "image", "t": "img/t/photographie-100.jpg", "f": "img/f/photographie-100.jpg"}, {"type": "image", "t": "img/t/photographie-101.jpg", "f": "img/f/photographie-101.jpg"}, {"type": "image", "t": "img/t/photographie-102.jpg", "f": "img/f/photographie-102.jpg"}, {"type": "image", "t": "img/t/photographie-103.jpg", "f": "img/f/photographie-103.jpg"}, {"type": "image", "t": "img/t/photographie-104.jpg", "f": "img/f/photographie-104.jpg"}, {"type": "image", "t": "img/t/photographie-105.jpg", "f": "img/f/photographie-105.jpg"}, {"type": "image", "t": "img/t/photographie-106.jpg", "f": "img/f/photographie-106.jpg"}, {"type": "image", "t": "img/t/photographie-107.jpg", "f": "img/f/photographie-107.jpg"}, {"type": "image", "t": "img/t/photographie-108.jpg", "f": "img/f/photographie-108.jpg"}, {"type": "image", "t": "img/t/photographie-109.jpg", "f": "img/f/photographie-109.jpg"}, {"type": "image", "t": "img/t/photographie-110.jpg", "f": "img/f/photographie-110.jpg"}, {"type": "image", "t": "img/t/photographie-111.jpg", "f": "img/f/photographie-111.jpg"}, {"type": "image", "t": "img/t/photographie-112.jpg", "f": "img/f/photographie-112.jpg"}, {"type": "image", "t": "img/t/photographie-113.jpg", "f": "img/f/photographie-113.jpg"}, {"type": "image", "t": "img/t/photographie-114.jpg", "f": "img/f/photographie-114.jpg"}, {"type": "image", "t": "img/t/photographie-115.jpg", "f": "img/f/photographie-115.jpg"}, {"type": "image", "t": "img/t/photographie-116.jpg", "f": "img/f/photographie-116.jpg"}, {"type": "image", "t": "img/t/photographie-117.jpg", "f": "img/f/photographie-117.jpg"}, {"type": "image", "t": "img/t/photographie-118.jpg", "f": "img/f/photographie-118.jpg"}, {"type": "image", "t": "img/t/photographie-119.jpg", "f": "img/f/photographie-119.jpg"}, {"type": "image", "t": "img/t/photographie-120.jpg", "f": "img/f/photographie-120.jpg"}, {"type": "image", "t": "img/t/photographie-121.jpg", "f": "img/f/photographie-121.jpg"}, {"type": "image", "t": "img/t/photographie-122.jpg", "f": "img/f/photographie-122.jpg"}, {"type": "image", "t": "img/t/photographie-123.jpg", "f": "img/f/photographie-123.jpg"}, {"type": "image", "t": "img/t/photographie-124.jpg", "f": "img/f/photographie-124.jpg"}, {"type": "image", "t": "img/t/photographie-125.jpg", "f": "img/f/photographie-125.jpg"}, {"type": "image", "t": "img/t/photographie-126.jpg", "f": "img/f/photographie-126.jpg"}, {"type": "image", "t": "img/t/photographie-127.jpg", "f": "img/f/photographie-127.jpg"}, {"type": "image", "t": "img/t/photographie-128.jpg", "f": "img/f/photographie-128.jpg"}, {"type": "image", "t": "img/t/photographie-129.jpg", "f": "img/f/photographie-129.jpg"}, {"type": "image", "t": "img/t/photographie-130.jpg", "f": "img/f/photographie-130.jpg"}, {"type": "image", "t": "img/t/photographie-131.jpg", "f": "img/f/photographie-131.jpg"}, {"type": "image", "t": "img/t/photographie-132.jpg", "f": "img/f/photographie-132.jpg"}, {"type": "image", "t": "img/t/photographie-133.jpg", "f": "img/f/photographie-133.jpg"}, {"type": "image", "t": "img/t/photographie-134.jpg", "f": "img/f/photographie-134.jpg"}, {"type": "image", "t": "img/t/photographie-135.jpg", "f": "img/f/photographie-135.jpg"}, {"type": "image", "t": "img/t/photographie-136.jpg", "f": "img/f/photographie-136.jpg"}, {"type": "image", "t": "img/t/photographie-137.jpg", "f": "img/f/photographie-137.jpg"}, {"type": "image", "t": "img/t/photographie-138.jpg", "f": "img/f/photographie-138.jpg"}, {"type": "image", "t": "img/t/photographie-139.jpg", "f": "img/f/photographie-139.jpg"}, {"type": "image", "t": "img/t/photographie-140.jpg", "f": "img/f/photographie-140.jpg"}, {"type": "image", "t": "img/t/photographie-141.jpg", "f": "img/f/photographie-141.jpg"}, {"type": "image", "t": "img/t/photographie-142.jpg", "f": "img/f/photographie-142.jpg"}, {"type": "image", "t": "img/t/photographie-143.jpg", "f": "img/f/photographie-143.jpg"}, {"type": "image", "t": "img/t/photographie-144.jpg", "f": "img/f/photographie-144.jpg"}, {"type": "image", "t": "img/t/photographie-145.jpg", "f": "img/f/photographie-145.jpg"}, {"type": "image", "t": "img/t/photographie-146.jpg", "f": "img/f/photographie-146.jpg"}, {"type": "image", "t": "img/t/photographie-147.jpg", "f": "img/f/photographie-147.jpg"}, {"type": "image", "t": "img/t/photographie-148.jpg", "f": "img/f/photographie-148.jpg"}, {"type": "image", "t": "img/t/photographie-149.jpg", "f": "img/f/photographie-149.jpg"}, {"type": "image", "t": "img/t/photographie-150.jpg", "f": "img/f/photographie-150.jpg"}, {"type": "image", "t": "img/t/photographie-151.jpg", "f": "img/f/photographie-151.jpg"}, {"type": "image", "t": "img/t/photographie-152.jpg", "f": "img/f/photographie-152.jpg"}, {"type": "image", "t": "img/t/photographie-153.jpg", "f": "img/f/photographie-153.jpg"}, {"type": "image", "t": "img/t/photographie-154.jpg", "f": "img/f/photographie-154.jpg"}, {"type": "image", "t": "img/t/photographie-155.jpg", "f": "img/f/photographie-155.jpg"}, {"type": "image", "t": "img/t/photographie-156.jpg", "f": "img/f/photographie-156.jpg"}, {"type": "image", "t": "img/t/photographie-157.jpg", "f": "img/f/photographie-157.jpg"}, {"type": "image", "t": "img/t/photographie-158.jpg", "f": "img/f/photographie-158.jpg"}, {"type": "image", "t": "img/t/photographie-159.jpg", "f": "img/f/photographie-159.jpg"}, {"type": "image", "t": "img/t/photographie-160.jpg", "f": "img/f/photographie-160.jpg"}, {"type": "image", "t": "img/t/photographie-161.jpg", "f": "img/f/photographie-161.jpg"}, {"type": "image", "t": "img/t/photographie-162.jpg", "f": "img/f/photographie-162.jpg"}, {"type": "image", "t": "img/t/photographie-163.jpg", "f": "img/f/photographie-163.jpg"}, {"type": "image", "t": "img/t/photographie-164.jpg", "f": "img/f/photographie-164.jpg"}, {"type": "image", "t": "img/t/photographie-165.jpg", "f": "img/f/photographie-165.jpg"}, {"type": "image", "t": "img/t/photographie-166.jpg", "f": "img/f/photographie-166.jpg"}, {"type": "image", "t": "img/t/photographie-167.jpg", "f": "img/f/photographie-167.jpg"}, {"type": "image", "t": "img/t/photographie-168.jpg", "f": "img/f/photographie-168.jpg"}, {"type": "image", "t": "img/t/photographie-169.jpg", "f": "img/f/photographie-169.jpg"}, {"type": "image", "t": "img/t/photographie-170.jpg", "f": "img/f/photographie-170.jpg"}, {"type": "image", "t": "img/t/photographie-171.jpg", "f": "img/f/photographie-171.jpg"}, {"type": "image", "t": "img/t/photographie-172.jpg", "f": "img/f/photographie-172.jpg"}, {"type": "image", "t": "img/t/photographie-173.jpg", "f": "img/f/photographie-173.jpg"}, {"type": "image", "t": "img/t/photographie-174.jpg", "f": "img/f/photographie-174.jpg"}, {"type": "image", "t": "img/t/photographie-175.jpg", "f": "img/f/photographie-175.jpg"}, {"type": "image", "t": "img/t/photographie-176.jpg", "f": "img/f/photographie-176.jpg"}, {"type": "image", "t": "img/t/photographie-177.jpg", "f": "img/f/photographie-177.jpg"}, {"type": "image", "t": "img/t/photographie-178.jpg", "f": "img/f/photographie-178.jpg"}, {"type": "image", "t": "img/t/photographie-179.jpg", "f": "img/f/photographie-179.jpg"}, {"type": "image", "t": "img/t/photographie-180.jpg", "f": "img/f/photographie-180.jpg"}, {"type": "image", "t": "img/t/photographie-181.jpg", "f": "img/f/photographie-181.jpg"}, {"type": "image", "t": "img/t/photographie-182.jpg", "f": "img/f/photographie-182.jpg"}, {"type": "image", "t": "img/t/photographie-183.jpg", "f": "img/f/photographie-183.jpg"}, {"type": "image", "t": "img/t/photographie-184.jpg", "f": "img/f/photographie-184.jpg"}, {"type": "image", "t": "img/t/photographie-185.jpg", "f": "img/f/photographie-185.jpg"}, {"type": "image", "t": "img/t/photographie-186.jpg", "f": "img/f/photographie-186.jpg"}, {"type": "image", "t": "img/t/photographie-187.jpg", "f": "img/f/photographie-187.jpg"}, {"type": "image", "t": "img/t/photographie-188.jpg", "f": "img/f/photographie-188.jpg"}, {"type": "image", "t": "img/t/photographie-189.jpg", "f": "img/f/photographie-189.jpg"}, {"type": "image", "t": "img/t/photographie-190.jpg", "f": "img/f/photographie-190.jpg"}, {"type": "image", "t": "img/t/photographie-191.jpg", "f": "img/f/photographie-191.jpg"}, {"type": "image", "t": "img/t/photographie-192.jpg", "f": "img/f/photographie-192.jpg"}, {"type": "image", "t": "img/t/photographie-193.jpg", "f": "img/f/photographie-193.jpg"}, {"type": "image", "t": "img/t/photographie-194.jpg", "f": "img/f/photographie-194.jpg"}, {"type": "image", "t": "img/t/photographie-195.jpg", "f": "img/f/photographie-195.jpg"}, {"type": "image", "t": "img/t/photographie-196.jpg", "f": "img/f/photographie-196.jpg"}, {"type": "image", "t": "img/t/photographie-197.jpg", "f": "img/f/photographie-197.jpg"}, {"type": "image", "t": "img/t/photographie-198.jpg", "f": "img/f/photographie-198.jpg"}, {"type": "image", "t": "img/t/photographie-199.jpg", "f": "img/f/photographie-199.jpg"}, {"type": "image", "t": "img/t/photographie-200.jpg", "f": "img/f/photographie-200.jpg"}, {"type": "image", "t": "img/t/photographie-201.jpg", "f": "img/f/photographie-201.jpg"}, {"type": "image", "t": "img/t/photographie-202.jpg", "f": "img/f/photographie-202.jpg"}, {"type": "image", "t": "img/t/photographie-203.jpg", "f": "img/f/photographie-203.jpg"}, {"type": "image", "t": "img/t/photographie-204.jpg", "f": "img/f/photographie-204.jpg"}, {"type": "image", "t": "img/t/photographie-205.jpg", "f": "img/f/photographie-205.jpg"}, {"type": "image", "t": "img/t/photographie-206.jpg", "f": "img/f/photographie-206.jpg"}, {"type": "image", "t": "img/t/photographie-207.jpg", "f": "img/f/photographie-207.jpg"}, {"type": "image", "t": "img/t/photographie-208.jpg", "f": "img/f/photographie-208.jpg"}, {"type": "image", "t": "img/t/photographie-209.jpg", "f": "img/f/photographie-209.jpg"}, {"type": "image", "t": "img/t/photographie-210.jpg", "f": "img/f/photographie-210.jpg"}, {"type": "image", "t": "img/t/photographie-211.jpg", "f": "img/f/photographie-211.jpg"}, {"type": "image", "t": "img/t/photographie-212.jpg", "f": "img/f/photographie-212.jpg"}, {"type": "image", "t": "img/t/photographie-213.jpg", "f": "img/f/photographie-213.jpg"}, {"type": "image", "t": "img/t/photographie-214.jpg", "f": "img/f/photographie-214.jpg"}, {"type": "image", "t": "img/t/photographie-215.jpg", "f": "img/f/photographie-215.jpg"}, {"type": "image", "t": "img/t/photographie-216.jpg", "f": "img/f/photographie-216.jpg"}, {"type": "image", "t": "img/t/photographie-217.jpg", "f": "img/f/photographie-217.jpg"}, {"type": "image", "t": "img/t/photographie-218.jpg", "f": "img/f/photographie-218.jpg"}, {"type": "image", "t": "img/t/photographie-219.jpg", "f": "img/f/photographie-219.jpg"}, {"type": "image", "t": "img/t/photographie-220.jpg", "f": "img/f/photographie-220.jpg"}, {"type": "image", "t": "img/t/photographie-221.jpg", "f": "img/f/photographie-221.jpg"}, {"type": "image", "t": "img/t/photographie-222.jpg", "f": "img/f/photographie-222.jpg"}, {"type": "image", "t": "img/t/photographie-223.jpg", "f": "img/f/photographie-223.jpg"}, {"type": "image", "t": "img/t/photographie-224.jpg", "f": "img/f/photographie-224.jpg"}, {"type": "image", "t": "img/t/photographie-225.jpg", "f": "img/f/photographie-225.jpg"}, {"type": "image", "t": "img/t/photographie-226.jpg", "f": "img/f/photographie-226.jpg"}, {"type": "image", "t": "img/t/photographie-227.jpg", "f": "img/f/photographie-227.jpg"}, {"type": "image", "t": "img/t/photographie-228.jpg", "f": "img/f/photographie-228.jpg"}, {"type": "image", "t": "img/t/photographie-229.jpg", "f": "img/f/photographie-229.jpg"}, {"type": "image", "t": "img/t/photographie-230.jpg", "f": "img/f/photographie-230.jpg"}, {"type": "image", "t": "img/t/photographie-231.jpg", "f": "img/f/photographie-231.jpg"}, {"type": "image", "t": "img/t/photographie-232.jpg", "f": "img/f/photographie-232.jpg"}, {"type": "image", "t": "img/t/photographie-233.jpg", "f": "img/f/photographie-233.jpg"}, {"type": "image", "t": "img/t/photographie-234.jpg", "f": "img/f/photographie-234.jpg"}, {"type": "image", "t": "img/t/photographie-235.jpg", "f": "img/f/photographie-235.jpg"}, {"type": "image", "t": "img/t/photographie-236.jpg", "f": "img/f/photographie-236.jpg"}, {"type": "image", "t": "img/t/photographie-237.jpg", "f": "img/f/photographie-237.jpg"}, {"type": "image", "t": "img/t/photographie-238.jpg", "f": "img/f/photographie-238.jpg"}, {"type": "image", "t": "img/t/photographie-239.jpg", "f": "img/f/photographie-239.jpg"}, {"type": "image", "t": "img/t/photographie-240.jpg", "f": "img/f/photographie-240.jpg"}, {"type": "image", "t": "img/t/photographie-241.jpg", "f": "img/f/photographie-241.jpg"}, {"type": "image", "t": "img/t/photographie-242.jpg", "f": "img/f/photographie-242.jpg"}, {"type": "image", "t": "img/t/photographie-243.jpg", "f": "img/f/photographie-243.jpg"}, {"type": "image", "t": "img/t/photographie-244.jpg", "f": "img/f/photographie-244.jpg"}, {"type": "image", "t": "img/t/photographie-245.jpg", "f": "img/f/photographie-245.jpg"}, {"type": "image", "t": "img/t/photographie-246.jpg", "f": "img/f/photographie-246.jpg"}, {"type": "image", "t": "img/t/photographie-247.jpg", "f": "img/f/photographie-247.jpg"}, {"type": "image", "t": "img/t/photographie-248.jpg", "f": "img/f/photographie-248.jpg"}, {"type": "image", "t": "img/t/photographie-249.jpg", "f": "img/f/photographie-249.jpg"}, {"type": "image", "t": "img/t/photographie-250.jpg", "f": "img/f/photographie-250.jpg"}, {"type": "image", "t": "img/t/photographie-251.jpg", "f": "img/f/photographie-251.jpg"}, {"type": "image", "t": "img/t/photographie-252.jpg", "f": "img/f/photographie-252.jpg"}, {"type": "image", "t": "img/t/photographie-253.jpg", "f": "img/f/photographie-253.jpg"}, {"type": "image", "t": "img/t/photographie-254.jpg", "f": "img/f/photographie-254.jpg"}, {"type": "image", "t": "img/t/photographie-255.jpg", "f": "img/f/photographie-255.jpg"}, {"type": "image", "t": "img/t/photographie-256.jpg", "f": "img/f/photographie-256.jpg"}, {"type": "image", "t": "img/t/photographie-257.jpg", "f": "img/f/photographie-257.jpg"}, {"type": "image", "t": "img/t/photographie-258.jpg", "f": "img/f/photographie-258.jpg"}, {"type": "image", "t": "img/t/photographie-259.jpg", "f": "img/f/photographie-259.jpg"}, {"type": "image", "t": "img/t/photographie-260.jpg", "f": "img/f/photographie-260.jpg"}, {"type": "image", "t": "img/t/photographie-261.jpg", "f": "img/f/photographie-261.jpg"}, {"type": "image", "t": "img/t/photographie-262.jpg", "f": "img/f/photographie-262.jpg"}, {"type": "image", "t": "img/t/photographie-263.jpg", "f": "img/f/photographie-263.jpg"}, {"type": "image", "t": "img/t/photographie-264.jpg", "f": "img/f/photographie-264.jpg"}, {"type": "image", "t": "img/t/photographie-265.jpg", "f": "img/f/photographie-265.jpg"}, {"type": "image", "t": "img/t/photographie-266.jpg", "f": "img/f/photographie-266.jpg"}, {"type": "image", "t": "img/t/photographie-267.jpg", "f": "img/f/photographie-267.jpg"}, {"type": "image", "t": "img/t/photographie-268.jpg", "f": "img/f/photographie-268.jpg"}, {"type": "image", "t": "img/t/photographie-269.jpg", "f": "img/f/photographie-269.jpg"}, {"type": "image", "t": "img/t/photographie-270.jpg", "f": "img/f/photographie-270.jpg"}, {"type": "image", "t": "img/t/photographie-271.jpg", "f": "img/f/photographie-271.jpg"}, {"type": "image", "t": "img/t/photographie-272.jpg", "f": "img/f/photographie-272.jpg"}, {"type": "image", "t": "img/t/photographie-273.jpg", "f": "img/f/photographie-273.jpg"}, {"type": "image", "t": "img/t/photographie-274.jpg", "f": "img/f/photographie-274.jpg"}, {"type": "image", "t": "img/t/photographie-275.jpg", "f": "img/f/photographie-275.jpg"}, {"type": "image", "t": "img/t/photographie-276.jpg", "f": "img/f/photographie-276.jpg"}, {"type": "image", "t": "img/t/photographie-277.jpg", "f": "img/f/photographie-277.jpg"}, {"type": "image", "t": "img/t/photographie-278.jpg", "f": "img/f/photographie-278.jpg"}, {"type": "image", "t": "img/t/photographie-279.jpg", "f": "img/f/photographie-279.jpg"}, {"type": "image", "t": "img/t/photographie-280.jpg", "f": "img/f/photographie-280.jpg"}, {"type": "image", "t": "img/t/photographie-281.jpg", "f": "img/f/photographie-281.jpg"}, {"type": "image", "t": "img/t/photographie-282.jpg", "f": "img/f/photographie-282.jpg"}, {"type": "image", "t": "img/t/photographie-283.jpg", "f": "img/f/photographie-283.jpg"}, {"type": "image", "t": "img/t/photographie-284.jpg", "f": "img/f/photographie-284.jpg"}, {"type": "image", "t": "img/t/photographie-285.jpg", "f": "img/f/photographie-285.jpg"}, {"type": "image", "t": "img/t/photographie-286.jpg", "f": "img/f/photographie-286.jpg"}, {"type": "image", "t": "img/t/photographie-287.jpg", "f": "img/f/photographie-287.jpg"}, {"type": "image", "t": "img/t/photographie-288.jpg", "f": "img/f/photographie-288.jpg"}, {"type": "image", "t": "img/t/photographie-289.jpg", "f": "img/f/photographie-289.jpg"}, {"type": "image", "t": "img/t/photographie-290.jpg", "f": "img/f/photographie-290.jpg"}, {"type": "image", "t": "img/t/photographie-291.jpg", "f": "img/f/photographie-291.jpg"}, {"type": "image", "t": "img/t/photographie-292.jpg", "f": "img/f/photographie-292.jpg"}, {"type": "image", "t": "img/t/photographie-293.jpg", "f": "img/f/photographie-293.jpg"}, {"type": "image", "t": "img/t/photographie-294.jpg", "f": "img/f/photographie-294.jpg"}, {"type": "image", "t": "img/t/photographie-295.jpg", "f": "img/f/photographie-295.jpg"}, {"type": "image", "t": "img/t/photographie-296.jpg", "f": "img/f/photographie-296.jpg"}, {"type": "image", "t": "img/t/photographie-297.jpg", "f": "img/f/photographie-297.jpg"}, {"type": "image", "t": "img/t/photographie-298.jpg", "f": "img/f/photographie-298.jpg"}, {"type": "image", "t": "img/t/photographie-299.jpg", "f": "img/f/photographie-299.jpg"}, {"type": "image", "t": "img/t/photographie-300.jpg", "f": "img/f/photographie-300.jpg"}, {"type": "image", "t": "img/t/photographie-301.jpg", "f": "img/f/photographie-301.jpg"}, {"type": "image", "t": "img/t/photographie-302.jpg", "f": "img/f/photographie-302.jpg"}, {"type": "image", "t": "img/t/photographie-303.jpg", "f": "img/f/photographie-303.jpg"}, {"type": "image", "t": "img/t/photographie-304.jpg", "f": "img/f/photographie-304.jpg"}, {"type": "image", "t": "img/t/photographie-305.jpg", "f": "img/f/photographie-305.jpg"}, {"type": "image", "t": "img/t/photographie-306.jpg", "f": "img/f/photographie-306.jpg"}, {"type": "image", "t": "img/t/photographie-307.jpg", "f": "img/f/photographie-307.jpg"}, {"type": "image", "t": "img/t/photographie-308.jpg", "f": "img/f/photographie-308.jpg"}, {"type": "image", "t": "img/t/photographie-309.jpg", "f": "img/f/photographie-309.jpg"}, {"type": "image", "t": "img/t/photographie-310.jpg", "f": "img/f/photographie-310.jpg"}, {"type": "image", "t": "img/t/photographie-311.jpg", "f": "img/f/photographie-311.jpg"}, {"type": "image", "t": "img/t/photographie-312.jpg", "f": "img/f/photographie-312.jpg"}, {"type": "image", "t": "img/t/photographie-313.jpg", "f": "img/f/photographie-313.jpg"}, {"type": "image", "t": "img/t/photographie-314.jpg", "f": "img/f/photographie-314.jpg"}, {"type": "image", "t": "img/t/photographie-315.jpg", "f": "img/f/photographie-315.jpg"}, {"type": "image", "t": "img/t/photographie-316.jpg", "f": "img/f/photographie-316.jpg"}, {"type": "image", "t": "img/t/photographie-317.jpg", "f": "img/f/photographie-317.jpg"}, {"type": "image", "t": "img/t/photographie-318.jpg", "f": "img/f/photographie-318.jpg"}, {"type": "image", "t": "img/t/photographie-319.jpg", "f": "img/f/photographie-319.jpg"}, {"type": "image", "t": "img/t/photographie-320.jpg", "f": "img/f/photographie-320.jpg"}, {"type": "image", "t": "img/t/photographie-321.jpg", "f": "img/f/photographie-321.jpg"}, {"type": "image", "t": "img/t/photographie-322.jpg", "f": "img/f/photographie-322.jpg"}, {"type": "image", "t": "img/t/photographie-323.jpg", "f": "img/f/photographie-323.jpg"}, {"type": "image", "t": "img/t/photographie-324.jpg", "f": "img/f/photographie-324.jpg"}, {"type": "image", "t": "img/t/photographie-325.jpg", "f": "img/f/photographie-325.jpg"}, {"type": "image", "t": "img/t/photographie-326.jpg", "f": "img/f/photographie-326.jpg"}, {"type": "image", "t": "img/t/photographie-327.jpg", "f": "img/f/photographie-327.jpg"}, {"type": "image", "t": "img/t/photographie-328.jpg", "f": "img/f/photographie-328.jpg"}, {"type": "image", "t": "img/t/photographie-329.jpg", "f": "img/f/photographie-329.jpg"}, {"type": "image", "t": "img/t/photographie-330.jpg", "f": "img/f/photographie-330.jpg"}, {"type": "image", "t": "img/t/photographie-331.jpg", "f": "img/f/photographie-331.jpg"}, {"type": "image", "t": "img/t/photographie-332.jpg", "f": "img/f/photographie-332.jpg"}, {"type": "image", "t": "img/t/photographie-333.jpg", "f": "img/f/photographie-333.jpg"}, {"type": "image", "t": "img/t/photographie-334.jpg", "f": "img/f/photographie-334.jpg"}, {"type": "image", "t": "img/t/photographie-335.jpg", "f": "img/f/photographie-335.jpg"}, {"type": "image", "t": "img/t/photographie-336.jpg", "f": "img/f/photographie-336.jpg"}, {"type": "image", "t": "img/t/photographie-337.jpg", "f": "img/f/photographie-337.jpg"}, {"type": "image", "t": "img/t/photographie-338.jpg", "f": "img/f/photographie-338.jpg"}, {"type": "image", "t": "img/t/photographie-339.jpg", "f": "img/f/photographie-339.jpg"}, {"type": "image", "t": "img/t/photographie-340.jpg", "f": "img/f/photographie-340.jpg"}, {"type": "image", "t": "img/t/photographie-341.jpg", "f": "img/f/photographie-341.jpg"}, {"type": "image", "t": "img/t/photographie-342.jpg", "f": "img/f/photographie-342.jpg"}, {"type": "image", "t": "img/t/photographie-343.jpg", "f": "img/f/photographie-343.jpg"}, {"type": "image", "t": "img/t/photographie-344.jpg", "f": "img/f/photographie-344.jpg"}, {"type": "image", "t": "img/t/photographie-345.jpg", "f": "img/f/photographie-345.jpg"}, {"type": "image", "t": "img/t/photographie-346.jpg", "f": "img/f/photographie-346.jpg"}, {"type": "image", "t": "img/t/photographie-347.jpg", "f": "img/f/photographie-347.jpg"}, {"type": "image", "t": "img/t/photographie-348.jpg", "f": "img/f/photographie-348.jpg"}, {"type": "image", "t": "img/t/photographie-349.jpg", "f": "img/f/photographie-349.jpg"}, {"type": "image", "t": "img/t/photographie-350.jpg", "f": "img/f/photographie-350.jpg"}, {"type": "image", "t": "img/t/photographie-351.jpg", "f": "img/f/photographie-351.jpg"}, {"type": "image", "t": "img/t/photographie-352.jpg", "f": "img/f/photographie-352.jpg"}, {"type": "image", "t": "img/t/photographie-353.jpg", "f": "img/f/photographie-353.jpg"}, {"type": "image", "t": "img/t/photographie-354.jpg", "f": "img/f/photographie-354.jpg"}, {"type": "image", "t": "img/t/photographie-355.jpg", "f": "img/f/photographie-355.jpg"}, {"type": "image", "t": "img/t/photographie-356.jpg", "f": "img/f/photographie-356.jpg"}, {"type": "image", "t": "img/t/photographie-357.jpg", "f": "img/f/photographie-357.jpg"}, {"type": "image", "t": "img/t/photographie-358.jpg", "f": "img/f/photographie-358.jpg"}, {"type": "image", "t": "img/t/photographie-359.jpg", "f": "img/f/photographie-359.jpg"}, {"type": "image", "t": "img/t/photographie-360.jpg", "f": "img/f/photographie-360.jpg"}, {"type": "image", "t": "img/t/photographie-361.jpg", "f": "img/f/photographie-361.jpg"}, {"type": "image", "t": "img/t/photographie-362.jpg", "f": "img/f/photographie-362.jpg"}, {"type": "image", "t": "img/t/photographie-363.jpg", "f": "img/f/photographie-363.jpg"}, {"type": "image", "t": "img/t/photographie-364.jpg", "f": "img/f/photographie-364.jpg"}, {"type": "image", "t": "img/t/photographie-365.jpg", "f": "img/f/photographie-365.jpg"}, {"type": "image", "t": "img/t/photographie-366.jpg", "f": "img/f/photographie-366.jpg"}, {"type": "image", "t": "img/t/photographie-367.jpg", "f": "img/f/photographie-367.jpg"}, {"type": "image", "t": "img/t/photographie-368.jpg", "f": "img/f/photographie-368.jpg"}, {"type": "image", "t": "img/t/photographie-369.jpg", "f": "img/f/photographie-369.jpg"}, {"type": "image", "t": "img/t/photographie-370.jpg", "f": "img/f/photographie-370.jpg"}, {"type": "image", "t": "img/t/photographie-371.jpg", "f": "img/f/photographie-371.jpg"}, {"type": "image", "t": "img/t/photographie-372.jpg", "f": "img/f/photographie-372.jpg"}, {"type": "image", "t": "img/t/photographie-373.jpg", "f": "img/f/photographie-373.jpg"}, {"type": "image", "t": "img/t/photographie-374.jpg", "f": "img/f/photographie-374.jpg"}, {"type": "image", "t": "img/t/photographie-375.jpg", "f": "img/f/photographie-375.jpg"}, {"type": "image", "t": "img/t/photographie-376.jpg", "f": "img/f/photographie-376.jpg"}, {"type": "image", "t": "img/t/photographie-377.jpg", "f": "img/f/photographie-377.jpg"}, {"type": "image", "t": "img/t/photographie-378.jpg", "f": "img/f/photographie-378.jpg"}, {"type": "image", "t": "img/t/photographie-379.jpg", "f": "img/f/photographie-379.jpg"}, {"type": "image", "t": "img/t/photographie-380.jpg", "f": "img/f/photographie-380.jpg"}, {"type": "image", "t": "img/t/photographie-381.jpg", "f": "img/f/photographie-381.jpg"}, {"type": "image", "t": "img/t/photographie-382.jpg", "f": "img/f/photographie-382.jpg"}, {"type": "image", "t": "img/t/photographie-383.jpg", "f": "img/f/photographie-383.jpg"}, {"type": "image", "t": "img/t/photographie-384.jpg", "f": "img/f/photographie-384.jpg"}, {"type": "image", "t": "img/t/photographie-385.jpg", "f": "img/f/photographie-385.jpg"}, {"type": "image", "t": "img/t/photographie-386.jpg", "f": "img/f/photographie-386.jpg"}, {"type": "image", "t": "img/t/photographie-387.jpg", "f": "img/f/photographie-387.jpg"}, {"type": "image", "t": "img/t/photographie-388.jpg", "f": "img/f/photographie-388.jpg"}, {"type": "image", "t": "img/t/photographie-389.jpg", "f": "img/f/photographie-389.jpg"}, {"type": "image", "t": "img/t/photographie-390.jpg", "f": "img/f/photographie-390.jpg"}, {"type": "image", "t": "img/t/photographie-391.jpg", "f": "img/f/photographie-391.jpg"}, {"type": "image", "t": "img/t/photographie-392.jpg", "f": "img/f/photographie-392.jpg"}, {"type": "image", "t": "img/t/photographie-393.jpg", "f": "img/f/photographie-393.jpg"}, {"type": "image", "t": "img/t/photographie-394.jpg", "f": "img/f/photographie-394.jpg"}, {"type": "image", "t": "img/t/photographie-395.jpg", "f": "img/f/photographie-395.jpg"}, {"type": "image", "t": "img/t/photographie-396.jpg", "f": "img/f/photographie-396.jpg"}, {"type": "image", "t": "img/t/photographie-397.jpg", "f": "img/f/photographie-397.jpg"}, {"type": "image", "t": "img/t/photographie-398.jpg", "f": "img/f/photographie-398.jpg"}, {"type": "image", "t": "img/t/photographie-399.jpg", "f": "img/f/photographie-399.jpg"}, {"type": "image", "t": "img/t/photographie-400.jpg", "f": "img/f/photographie-400.jpg"}, {"type": "image", "t": "img/t/photographie-401.jpg", "f": "img/f/photographie-401.jpg"}, {"type": "image", "t": "img/t/photographie-402.jpg", "f": "img/f/photographie-402.jpg"}, {"type": "image", "t": "img/t/photographie-403.jpg", "f": "img/f/photographie-403.jpg"}, {"type": "image", "t": "img/t/photographie-404.jpg", "f": "img/f/photographie-404.jpg"}, {"type": "image", "t": "img/t/photographie-405.jpg", "f": "img/f/photographie-405.jpg"}, {"type": "image", "t": "img/t/photographie-406.jpg", "f": "img/f/photographie-406.jpg"}, {"type": "image", "t": "img/t/photographie-407.jpg", "f": "img/f/photographie-407.jpg"}, {"type": "image", "t": "img/t/photographie-408.jpg", "f": "img/f/photographie-408.jpg"}, {"type": "image", "t": "img/t/photographie-409.jpg", "f": "img/f/photographie-409.jpg"}, {"type": "image", "t": "img/t/photographie-410.jpg", "f": "img/f/photographie-410.jpg"}, {"type": "image", "t": "img/t/photographie-411.jpg", "f": "img/f/photographie-411.jpg"}, {"type": "image", "t": "img/t/photographie-412.jpg", "f": "img/f/photographie-412.jpg"}, {"type": "image", "t": "img/t/photographie-413.jpg", "f": "img/f/photographie-413.jpg"}, {"type": "image", "t": "img/t/photographie-414.jpg", "f": "img/f/photographie-414.jpg"}, {"type": "image", "t": "img/t/photographie-415.jpg", "f": "img/f/photographie-415.jpg"}, {"type": "image", "t": "img/t/photographie-416.jpg", "f": "img/f/photographie-416.jpg"}, {"type": "image", "t": "img/t/photographie-417.jpg", "f": "img/f/photographie-417.jpg"}, {"type": "image", "t": "img/t/photographie-418.jpg", "f": "img/f/photographie-418.jpg"}, {"type": "image", "t": "img/t/photographie-419.jpg", "f": "img/f/photographie-419.jpg"}, {"type": "image", "t": "img/t/photographie-420.jpg", "f": "img/f/photographie-420.jpg"}, {"type": "image", "t": "img/t/photographie-421.jpg", "f": "img/f/photographie-421.jpg"}, {"type": "image", "t": "img/t/photographie-422.jpg", "f": "img/f/photographie-422.jpg"}, {"type": "image", "t": "img/t/photographie-423.jpg", "f": "img/f/photographie-423.jpg"}, {"type": "image", "t": "img/t/photographie-424.jpg", "f": "img/f/photographie-424.jpg"}, {"type": "image", "t": "img/t/photographie-425.jpg", "f": "img/f/photographie-425.jpg"}, {"type": "image", "t": "img/t/photographie-426.jpg", "f": "img/f/photographie-426.jpg"}, {"type": "image", "t": "img/t/photographie-427.jpg", "f": "img/f/photographie-427.jpg"}, {"type": "image", "t": "img/t/photographie-428.jpg", "f": "img/f/photographie-428.jpg"}, {"type": "image", "t": "img/t/photographie-429.jpg", "f": "img/f/photographie-429.jpg"}, {"type": "image", "t": "img/t/photographie-430.jpg", "f": "img/f/photographie-430.jpg"}, {"type": "image", "t": "img/t/photographie-431.jpg", "f": "img/f/photographie-431.jpg"}, {"type": "image", "t": "img/t/photographie-432.jpg", "f": "img/f/photographie-432.jpg"}, {"type": "image", "t": "img/t/photographie-433.jpg", "f": "img/f/photographie-433.jpg"}, {"type": "image", "t": "img/t/photographie-434.jpg", "f": "img/f/photographie-434.jpg"}, {"type": "image", "t": "img/t/photographie-435.jpg", "f": "img/f/photographie-435.jpg"}, {"type": "image", "t": "img/t/photographie-436.jpg", "f": "img/f/photographie-436.jpg"}, {"type": "image", "t": "img/t/photographie-437.jpg", "f": "img/f/photographie-437.jpg"}, {"type": "image", "t": "img/t/photographie-438.jpg", "f": "img/f/photographie-438.jpg"}, {"type": "image", "t": "img/t/photographie-439.jpg", "f": "img/f/photographie-439.jpg"}, {"type": "image", "t": "img/t/photographie-440.jpg", "f": "img/f/photographie-440.jpg"}, {"type": "image", "t": "img/t/photographie-441.jpg", "f": "img/f/photographie-441.jpg"}, {"type": "image", "t": "img/t/photographie-442.jpg", "f": "img/f/photographie-442.jpg"}, {"type": "image", "t": "img/t/photographie-443.jpg", "f": "img/f/photographie-443.jpg"}, {"type": "image", "t": "img/t/photographie-444.jpg", "f": "img/f/photographie-444.jpg"}, {"type": "image", "t": "img/t/photographie-445.jpg", "f": "img/f/photographie-445.jpg"}, {"type": "image", "t": "img/t/photographie-446.jpg", "f": "img/f/photographie-446.jpg"}, {"type": "image", "t": "img/t/photographie-447.jpg", "f": "img/f/photographie-447.jpg"}, {"type": "image", "t": "img/t/photographie-448.jpg", "f": "img/f/photographie-448.jpg"}, {"type": "image", "t": "img/t/photographie-449.jpg", "f": "img/f/photographie-449.jpg"}, {"type": "image", "t": "img/t/photographie-450.jpg", "f": "img/f/photographie-450.jpg"}, {"type": "image", "t": "img/t/photographie-451.jpg", "f": "img/f/photographie-451.jpg"}, {"type": "image", "t": "img/t/photographie-452.jpg", "f": "img/f/photographie-452.jpg"}, {"type": "image", "t": "img/t/photographie-453.jpg", "f": "img/f/photographie-453.jpg"}, {"type": "image", "t": "img/t/photographie-454.jpg", "f": "img/f/photographie-454.jpg"}, {"type": "image", "t": "img/t/photographie-455.jpg", "f": "img/f/photographie-455.jpg"}, {"type": "image", "t": "img/t/photographie-456.jpg", "f": "img/f/photographie-456.jpg"}, {"type": "image", "t": "img/t/photographie-457.jpg", "f": "img/f/photographie-457.jpg"}, {"type": "image", "t": "img/t/photographie-458.jpg", "f": "img/f/photographie-458.jpg"}, {"type": "image", "t": "img/t/photographie-459.jpg", "f": "img/f/photographie-459.jpg"}, {"type": "image", "t": "img/t/photographie-460.jpg", "f": "img/f/photographie-460.jpg"}, {"type": "image", "t": "img/t/photographie-461.jpg", "f": "img/f/photographie-461.jpg"}, {"type": "image", "t": "img/t/photographie-462.jpg", "f": "img/f/photographie-462.jpg"}, {"type": "image", "t": "img/t/photographie-463.jpg", "f": "img/f/photographie-463.jpg"}, {"type": "image", "t": "img/t/photographie-464.jpg", "f": "img/f/photographie-464.jpg"}, {"type": "image", "t": "img/t/photographie-465.jpg", "f": "img/f/photographie-465.jpg"}, {"type": "image", "t": "img/t/photographie-466.jpg", "f": "img/f/photographie-466.jpg"}, {"type": "image", "t": "img/t/photographie-467.jpg", "f": "img/f/photographie-467.jpg"}, {"type": "image", "t": "img/t/photographie-468.jpg", "f": "img/f/photographie-468.jpg"}, {"type": "image", "t": "img/t/photographie-469.jpg", "f": "img/f/photographie-469.jpg"}, {"type": "image", "t": "img/t/photographie-470.jpg", "f": "img/f/photographie-470.jpg"}, {"type": "image", "t": "img/t/photographie-471.jpg", "f": "img/f/photographie-471.jpg"}, {"type": "image", "t": "img/t/photographie-472.jpg", "f": "img/f/photographie-472.jpg"}, {"type": "image", "t": "img/t/photographie-473.jpg", "f": "img/f/photographie-473.jpg"}, {"type": "image", "t": "img/t/photographie-474.jpg", "f": "img/f/photographie-474.jpg"}, {"type": "image", "t": "img/t/photographie-475.jpg", "f": "img/f/photographie-475.jpg"}, {"type": "image", "t": "img/t/photographie-476.jpg", "f": "img/f/photographie-476.jpg"}, {"type": "image", "t": "img/t/photographie-477.jpg", "f": "img/f/photographie-477.jpg"}, {"type": "image", "t": "img/t/photographie-478.jpg", "f": "img/f/photographie-478.jpg"}, {"type": "image", "t": "img/t/photographie-479.jpg", "f": "img/f/photographie-479.jpg"}, {"type": "image", "t": "img/t/photographie-480.jpg", "f": "img/f/photographie-480.jpg"}, {"type": "image", "t": "img/t/photographie-481.jpg", "f": "img/f/photographie-481.jpg"}, {"type": "image", "t": "img/t/photographie-482.jpg", "f": "img/f/photographie-482.jpg"}, {"type": "image", "t": "img/t/photographie-483.jpg", "f": "img/f/photographie-483.jpg"}, {"type": "image", "t": "img/t/photographie-484.jpg", "f": "img/f/photographie-484.jpg"}, {"type": "image", "t": "img/t/photographie-485.jpg", "f": "img/f/photographie-485.jpg"}, {"type": "image", "t": "img/t/photographie-486.jpg", "f": "img/f/photographie-486.jpg"}, {"type": "image", "t": "img/t/photographie-487.jpg", "f": "img/f/photographie-487.jpg"}, {"type": "image", "t": "img/t/photographie-488.jpg", "f": "img/f/photographie-488.jpg"}, {"type": "image", "t": "img/t/photographie-489.jpg", "f": "img/f/photographie-489.jpg"}, {"type": "image", "t": "img/t/photographie-490.jpg", "f": "img/f/photographie-490.jpg"}, {"type": "image", "t": "img/t/photographie-491.jpg", "f": "img/f/photographie-491.jpg"}, {"type": "image", "t": "img/t/photographie-492.jpg", "f": "img/f/photographie-492.jpg"}, {"type": "image", "t": "img/t/photographie-493.jpg", "f": "img/f/photographie-493.jpg"}, {"type": "image", "t": "img/t/photographie-494.jpg", "f": "img/f/photographie-494.jpg"}, {"type": "image", "t": "img/t/photographie-495.jpg", "f": "img/f/photographie-495.jpg"}, {"type": "image", "t": "img/t/photographie-496.jpg", "f": "img/f/photographie-496.jpg"}, {"type": "image", "t": "img/t/photographie-497.jpg", "f": "img/f/photographie-497.jpg"}, {"type": "image", "t": "img/t/photographie-498.jpg", "f": "img/f/photographie-498.jpg"}, {"type": "image", "t": "img/t/photographie-499.jpg", "f": "img/f/photographie-499.jpg"}, {"type": "image", "t": "img/t/photographie-500.jpg", "f": "img/f/photographie-500.jpg"}, {"type": "image", "t": "img/t/photographie-501.jpg", "f": "img/f/photographie-501.jpg"}, {"type": "image", "t": "img/t/photographie-502.jpg", "f": "img/f/photographie-502.jpg"}, {"type": "image", "t": "img/t/photographie-503.jpg", "f": "img/f/photographie-503.jpg"}, {"type": "image", "t": "img/t/photographie-504.jpg", "f": "img/f/photographie-504.jpg"}, {"type": "image", "t": "img/t/photographie-505.jpg", "f": "img/f/photographie-505.jpg"}, {"type": "image", "t": "img/t/photographie-506.jpg", "f": "img/f/photographie-506.jpg"}, {"type": "image", "t": "img/t/photographie-507.jpg", "f": "img/f/photographie-507.jpg"}, {"type": "image", "t": "img/t/photographie-508.jpg", "f": "img/f/photographie-508.jpg"}, {"type": "image", "t": "img/t/photographie-509.jpg", "f": "img/f/photographie-509.jpg"}, {"type": "image", "t": "img/t/photographie-510.jpg", "f": "img/f/photographie-510.jpg"}, {"type": "image", "t": "img/t/photographie-511.jpg", "f": "img/f/photographie-511.jpg"}, {"type": "image", "t": "img/t/photographie-512.jpg", "f": "img/f/photographie-512.jpg"}, {"type": "image", "t": "img/t/photographie-513.jpg", "f": "img/f/photographie-513.jpg"}, {"type": "image", "t": "img/t/photographie-514.jpg", "f": "img/f/photographie-514.jpg"}, {"type": "image", "t": "img/t/photographie-515.jpg", "f": "img/f/photographie-515.jpg"}, {"type": "image", "t": "img/t/photographie-516.jpg", "f": "img/f/photographie-516.jpg"}, {"type": "image", "t": "img/t/photographie-517.jpg", "f": "img/f/photographie-517.jpg"}, {"type": "image", "t": "img/t/photographie-518.jpg", "f": "img/f/photographie-518.jpg"}, {"type": "image", "t": "img/t/photographie-519.jpg", "f": "img/f/photographie-519.jpg"}, {"type": "image", "t": "img/t/photographie-520.jpg", "f": "img/f/photographie-520.jpg"}, {"type": "image", "t": "img/t/photographie-521.jpg", "f": "img/f/photographie-521.jpg"}, {"type": "image", "t": "img/t/photographie-522.jpg", "f": "img/f/photographie-522.jpg"}, {"type": "image", "t": "img/t/photographie-523.jpg", "f": "img/f/photographie-523.jpg"}, {"type": "image", "t": "img/t/photographie-524.jpg", "f": "img/f/photographie-524.jpg"}, {"type": "image", "t": "img/t/photographie-525.jpg", "f": "img/f/photographie-525.jpg"}, {"type": "image", "t": "img/t/photographie-526.jpg", "f": "img/f/photographie-526.jpg"}, {"type": "image", "t": "img/t/photographie-527.jpg", "f": "img/f/photographie-527.jpg"}, {"type": "image", "t": "img/t/photographie-528.jpg", "f": "img/f/photographie-528.jpg"}, {"type": "image", "t": "img/t/photographie-529.jpg", "f": "img/f/photographie-529.jpg"}, {"type": "image", "t": "img/t/photographie-530.jpg", "f": "img/f/photographie-530.jpg"}, {"type": "image", "t": "img/t/photographie-531.jpg", "f": "img/f/photographie-531.jpg"}, {"type": "image", "t": "img/t/photographie-532.jpg", "f": "img/f/photographie-532.jpg"}, {"type": "image", "t": "img/t/photographie-533.jpg", "f": "img/f/photographie-533.jpg"}, {"type": "image", "t": "img/t/photographie-534.jpg", "f": "img/f/photographie-534.jpg"}, {"type": "image", "t": "img/t/photographie-535.jpg", "f": "img/f/photographie-535.jpg"}, {"type": "image", "t": "img/t/photographie-536.jpg", "f": "img/f/photographie-536.jpg"}, {"type": "image", "t": "img/t/photographie-537.jpg", "f": "img/f/photographie-537.jpg"}, {"type": "image", "t": "img/t/photographie-538.jpg", "f": "img/f/photographie-538.jpg"}, {"type": "image", "t": "img/t/photographie-539.jpg", "f": "img/f/photographie-539.jpg"}, {"type": "image", "t": "img/t/photographie-540.jpg", "f": "img/f/photographie-540.jpg"}, {"type": "image", "t": "img/t/photographie-541.jpg", "f": "img/f/photographie-541.jpg"}, {"type": "image", "t": "img/t/photographie-542.jpg", "f": "img/f/photographie-542.jpg"}, {"type": "image", "t": "img/t/photographie-543.jpg", "f": "img/f/photographie-543.jpg"}, {"type": "image", "t": "img/t/photographie-544.jpg", "f": "img/f/photographie-544.jpg"}, {"type": "image", "t": "img/t/photographie-545.jpg", "f": "img/f/photographie-545.jpg"}, {"type": "image", "t": "img/t/photographie-546.jpg", "f": "img/f/photographie-546.jpg"}, {"type": "image", "t": "img/t/photographie-547.jpg", "f": "img/f/photographie-547.jpg"}, {"type": "image", "t": "img/t/photographie-548.jpg", "f": "img/f/photographie-548.jpg"}, {"type": "image", "t": "img/t/photographie-549.jpg", "f": "img/f/photographie-549.jpg"}, {"type": "image", "t": "img/t/photographie-550.jpg", "f": "img/f/photographie-550.jpg"}, {"type": "image", "t": "img/t/photographie-551.jpg", "f": "img/f/photographie-551.jpg"}, {"type": "image", "t": "img/t/photographie-552.jpg", "f": "img/f/photographie-552.jpg"}, {"type": "image", "t": "img/t/photographie-553.jpg", "f": "img/f/photographie-553.jpg"}, {"type": "image", "t": "img/t/photographie-554.jpg", "f": "img/f/photographie-554.jpg"}, {"type": "image", "t": "img/t/photographie-555.jpg", "f": "img/f/photographie-555.jpg"}, {"type": "image", "t": "img/t/photographie-556.jpg", "f": "img/f/photographie-556.jpg"}, {"type": "image", "t": "img/t/photographie-557.jpg", "f": "img/f/photographie-557.jpg"}, {"type": "image", "t": "img/t/photographie-558.jpg", "f": "img/f/photographie-558.jpg"}], "design-graphique": [{"type": "image", "t": "img/t/design-graphique-001.jpg", "f": "img/f/design-graphique-001.jpg"}, {"type": "image", "t": "img/t/design-graphique-002.jpg", "f": "img/f/design-graphique-002.jpg"}, {"type": "image", "t": "img/t/design-graphique-003.jpg", "f": "img/f/design-graphique-003.jpg"}, {"type": "image", "t": "img/t/design-graphique-004.jpg", "f": "img/f/design-graphique-004.jpg"}, {"type": "image", "t": "img/t/design-graphique-005.jpg", "f": "img/f/design-graphique-005.jpg"}, {"type": "image", "t": "img/t/design-graphique-006.jpg", "f": "img/f/design-graphique-006.jpg"}, {"type": "image", "t": "img/t/design-graphique-007.jpg", "f": "img/f/design-graphique-007.jpg"}, {"type": "image", "t": "img/t/design-graphique-008.jpg", "f": "img/f/design-graphique-008.jpg"}, {"type": "image", "t": "img/t/design-graphique-009.jpg", "f": "img/f/design-graphique-009.jpg"}, {"type": "image", "t": "img/t/design-graphique-010.jpg", "f": "img/f/design-graphique-010.jpg"}, {"type": "image", "t": "img/t/design-graphique-011.jpg", "f": "img/f/design-graphique-011.jpg"}, {"type": "image", "t": "img/t/design-graphique-012.jpg", "f": "img/f/design-graphique-012.jpg"}, {"type": "image", "t": "img/t/design-graphique-013.jpg", "f": "img/f/design-graphique-013.jpg"}, {"type": "image", "t": "img/t/design-graphique-014.jpg", "f": "img/f/design-graphique-014.jpg"}, {"type": "image", "t": "img/t/design-graphique-015.jpg", "f": "img/f/design-graphique-015.jpg"}, {"type": "image", "t": "img/t/design-graphique-016.jpg", "f": "img/f/design-graphique-016.jpg"}, {"type": "image", "t": "img/t/design-graphique-017.jpg", "f": "img/f/design-graphique-017.jpg"}, {"type": "image", "t": "img/t/design-graphique-018.jpg", "f": "img/f/design-graphique-018.jpg"}, {"type": "image", "t": "img/t/design-graphique-019.jpg", "f": "img/f/design-graphique-019.jpg"}, {"type": "image", "t": "img/t/design-graphique-020.jpg", "f": "img/f/design-graphique-020.jpg"}, {"type": "image", "t": "img/t/design-graphique-021.jpg", "f": "img/f/design-graphique-021.jpg"}, {"type": "image", "t": "img/t/design-graphique-022.jpg", "f": "img/f/design-graphique-022.jpg"}, {"type": "image", "t": "img/t/design-graphique-023.jpg", "f": "img/f/design-graphique-023.jpg"}, {"type": "image", "t": "img/t/design-graphique-024.jpg", "f": "img/f/design-graphique-024.jpg"}, {"type": "image", "t": "img/t/design-graphique-025.jpg", "f": "img/f/design-graphique-025.jpg"}, {"type": "image", "t": "img/t/design-graphique-026.jpg", "f": "img/f/design-graphique-026.jpg"}, {"type": "image", "t": "img/t/design-graphique-027.jpg", "f": "img/f/design-graphique-027.jpg"}, {"type": "image", "t": "img/t/design-graphique-028.jpg", "f": "img/f/design-graphique-028.jpg"}, {"type": "image", "t": "img/t/design-graphique-029.jpg", "f": "img/f/design-graphique-029.jpg"}, {"type": "image", "t": "img/t/design-graphique-030.jpg", "f": "img/f/design-graphique-030.jpg"}, {"type": "image", "t": "img/t/design-graphique-031.jpg", "f": "img/f/design-graphique-031.jpg"}, {"type": "image", "t": "img/t/design-graphique-032.jpg", "f": "img/f/design-graphique-032.jpg"}, {"type": "image", "t": "img/t/design-graphique-033.jpg", "f": "img/f/design-graphique-033.jpg"}, {"type": "image", "t": "img/t/design-graphique-034.jpg", "f": "img/f/design-graphique-034.jpg"}, {"type": "image", "t": "img/t/design-graphique-035.jpg", "f": "img/f/design-graphique-035.jpg"}, {"type": "image", "t": "img/t/design-graphique-036.jpg", "f": "img/f/design-graphique-036.jpg"}, {"type": "image", "t": "img/t/design-graphique-037.jpg", "f": "img/f/design-graphique-037.jpg"}, {"type": "image", "t": "img/t/design-graphique-038.jpg", "f": "img/f/design-graphique-038.jpg"}, {"type": "image", "t": "img/t/design-graphique-039.jpg", "f": "img/f/design-graphique-039.jpg"}, {"type": "image", "t": "img/t/design-graphique-040.jpg", "f": "img/f/design-graphique-040.jpg"}, {"type": "image", "t": "img/t/design-graphique-041.jpg", "f": "img/f/design-graphique-041.jpg"}, {"type": "image", "t": "img/t/design-graphique-042.jpg", "f": "img/f/design-graphique-042.jpg"}, {"type": "image", "t": "img/t/design-graphique-043.jpg", "f": "img/f/design-graphique-043.jpg"}, {"type": "image", "t": "img/t/design-graphique-044.jpg", "f": "img/f/design-graphique-044.jpg"}, {"type": "image", "t": "img/t/design-graphique-045.jpg", "f": "img/f/design-graphique-045.jpg"}, {"type": "image", "t": "img/t/design-graphique-046.jpg", "f": "img/f/design-graphique-046.jpg"}, {"type": "image", "t": "img/t/design-graphique-047.jpg", "f": "img/f/design-graphique-047.jpg"}, {"type": "image", "t": "img/t/design-graphique-048.jpg", "f": "img/f/design-graphique-048.jpg"}, {"type": "image", "t": "img/t/design-graphique-049.jpg", "f": "img/f/design-graphique-049.jpg"}, {"type": "image", "t": "img/t/design-graphique-050.jpg", "f": "img/f/design-graphique-050.jpg"}, {"type": "image", "t": "img/t/design-graphique-051.jpg", "f": "img/f/design-graphique-051.jpg"}, {"type": "image", "t": "img/t/design-graphique-052.jpg", "f": "img/f/design-graphique-052.jpg"}, {"type": "image", "t": "img/t/design-graphique-053.jpg", "f": "img/f/design-graphique-053.jpg"}, {"type": "image", "t": "img/t/design-graphique-054.jpg", "f": "img/f/design-graphique-054.jpg"}, {"type": "image", "t": "img/t/design-graphique-055.jpg", "f": "img/f/design-graphique-055.jpg"}, {"type": "image", "t": "img/t/design-graphique-056.jpg", "f": "img/f/design-graphique-056.jpg"}, {"type": "image", "t": "img/t/design-graphique-057.jpg", "f": "img/f/design-graphique-057.jpg"}, {"type": "image", "t": "img/t/design-graphique-058.jpg", "f": "img/f/design-graphique-058.jpg"}, {"type": "image", "t": "img/t/design-graphique-059.jpg", "f": "img/f/design-graphique-059.jpg"}, {"type": "image", "t": "img/t/design-graphique-060.jpg", "f": "img/f/design-graphique-060.jpg"}, {"type": "image", "t": "img/t/design-graphique-061.jpg", "f": "img/f/design-graphique-061.jpg"}, {"type": "image", "t": "img/t/design-graphique-062.jpg", "f": "img/f/design-graphique-062.jpg"}, {"type": "image", "t": "img/t/design-graphique-063.jpg", "f": "img/f/design-graphique-063.jpg"}, {"type": "image", "t": "img/t/design-graphique-064.jpg", "f": "img/f/design-graphique-064.jpg"}, {"type": "image", "t": "img/t/design-graphique-065.jpg", "f": "img/f/design-graphique-065.jpg"}, {"type": "image", "t": "img/t/design-graphique-066.jpg", "f": "img/f/design-graphique-066.jpg"}, {"type": "image", "t": "img/t/design-graphique-067.jpg", "f": "img/f/design-graphique-067.jpg"}, {"type": "image", "t": "img/t/design-graphique-068.jpg", "f": "img/f/design-graphique-068.jpg"}, {"type": "image", "t": "img/t/design-graphique-069.jpg", "f": "img/f/design-graphique-069.jpg"}, {"type": "image", "t": "img/t/design-graphique-070.jpg", "f": "img/f/design-graphique-070.jpg"}, {"type": "image", "t": "img/t/design-graphique-071.jpg", "f": "img/f/design-graphique-071.jpg"}, {"type": "image", "t": "img/t/design-graphique-072.jpg", "f": "img/f/design-graphique-072.jpg"}, {"type": "image", "t": "img/t/design-graphique-073.jpg", "f": "img/f/design-graphique-073.jpg"}, {"type": "image", "t": "img/t/design-graphique-074.jpg", "f": "img/f/design-graphique-074.jpg"}, {"type": "image", "t": "img/t/design-graphique-075.jpg", "f": "img/f/design-graphique-075.jpg"}, {"type": "image", "t": "img/t/design-graphique-076.jpg", "f": "img/f/design-graphique-076.jpg"}, {"type": "image", "t": "img/t/design-graphique-077.jpg", "f": "img/f/design-graphique-077.jpg"}, {"type": "image", "t": "img/t/design-graphique-078.jpg", "f": "img/f/design-graphique-078.jpg"}, {"type": "image", "t": "img/t/design-graphique-079.jpg", "f": "img/f/design-graphique-079.jpg"}, {"type": "image", "t": "img/t/design-graphique-080.jpg", "f": "img/f/design-graphique-080.jpg"}, {"type": "image", "t": "img/t/design-graphique-081.jpg", "f": "img/f/design-graphique-081.jpg"}, {"type": "image", "t": "img/t/design-graphique-082.jpg", "f": "img/f/design-graphique-082.jpg"}, {"type": "image", "t": "img/t/design-graphique-083.jpg", "f": "img/f/design-graphique-083.jpg"}, {"type": "image", "t": "img/t/design-graphique-084.jpg", "f": "img/f/design-graphique-084.jpg"}, {"type": "image", "t": "img/t/design-graphique-085.jpg", "f": "img/f/design-graphique-085.jpg"}, {"type": "image", "t": "img/t/design-graphique-086.jpg", "f": "img/f/design-graphique-086.jpg"}, {"type": "image", "t": "img/t/design-graphique-087.jpg", "f": "img/f/design-graphique-087.jpg"}, {"type": "image", "t": "img/t/design-graphique-088.jpg", "f": "img/f/design-graphique-088.jpg"}, {"type": "image", "t": "img/t/design-graphique-089.jpg", "f": "img/f/design-graphique-089.jpg"}, {"type": "image", "t": "img/t/design-graphique-090.jpg", "f": "img/f/design-graphique-090.jpg"}, {"type": "image", "t": "img/t/design-graphique-091.jpg", "f": "img/f/design-graphique-091.jpg"}, {"type": "image", "t": "img/t/design-graphique-092.jpg", "f": "img/f/design-graphique-092.jpg"}, {"type": "image", "t": "img/t/design-graphique-093.jpg", "f": "img/f/design-graphique-093.jpg"}, {"type": "image", "t": "img/t/design-graphique-094.jpg", "f": "img/f/design-graphique-094.jpg"}, {"type": "image", "t": "img/t/design-graphique-095.jpg", "f": "img/f/design-graphique-095.jpg"}, {"type": "image", "t": "img/t/design-graphique-096.jpg", "f": "img/f/design-graphique-096.jpg"}, {"type": "image", "t": "img/t/design-graphique-097.jpg", "f": "img/f/design-graphique-097.jpg"}, {"type": "image", "t": "img/t/design-graphique-098.jpg", "f": "img/f/design-graphique-098.jpg"}, {"type": "image", "t": "img/t/design-graphique-099.jpg", "f": "img/f/design-graphique-099.jpg"}, {"type": "image", "t": "img/t/design-graphique-100.jpg", "f": "img/f/design-graphique-100.jpg"}, {"type": "image", "t": "img/t/design-graphique-101.jpg", "f": "img/f/design-graphique-101.jpg"}, {"type": "image", "t": "img/t/design-graphique-102.jpg", "f": "img/f/design-graphique-102.jpg"}, {"type": "image", "t": "img/t/design-graphique-103.jpg", "f": "img/f/design-graphique-103.jpg"}, {"type": "image", "t": "img/t/design-graphique-104.jpg", "f": "img/f/design-graphique-104.jpg"}, {"type": "image", "t": "img/t/design-graphique-105.jpg", "f": "img/f/design-graphique-105.jpg"}, {"type": "image", "t": "img/t/design-graphique-106.jpg", "f": "img/f/design-graphique-106.jpg"}, {"type": "image", "t": "img/t/design-graphique-107.jpg", "f": "img/f/design-graphique-107.jpg"}, {"type": "image", "t": "img/t/design-graphique-108.jpg", "f": "img/f/design-graphique-108.jpg"}, {"type": "image", "t": "img/t/design-graphique-109.jpg", "f": "img/f/design-graphique-109.jpg"}, {"type": "image", "t": "img/t/design-graphique-110.jpg", "f": "img/f/design-graphique-110.jpg"}], "cadrage-montage": [{"type": "link", "url": "https://drive.google.com/drive/folders/1lNIs60dN8tiJlJ91dYg9nUnHWAnp7EhZ?usp=sharing", "title": "Quelques présentations vidéos  parmi plusieurs"}], "motion-design": [{"type": "link", "url": "https://drive.google.com/drive/folders/1zDFt-02vSZJ_fuvX9tl3ibqZDqL8aqJo?usp=sharing", "title": "Quelques présentations motion design"}]}, "hero": true};</script>
+<script>
+(function () {
+  "use strict";
+  var ICON_ATTR = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+  var CATS = [
+    { id: "photographie", name: "Photographie", short: "Photographie", desc: "Portraits, événements et images de marque.",
+      icon: '<svg ' + ICON_ATTR + '><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>' },
+    { id: "design-graphique", name: "Design graphique & identité visuelle", short: "Design graphique", desc: "Logos, chartes graphiques, affiches et supports de communication.",
+      icon: '<svg ' + ICON_ATTR + '><path d="M12 3l6 8-6 10-6-10z"/><circle cx="12" cy="11" r="1.6"/><path d="M12 12.6V21"/></svg>' },
+    { id: "cadrage-montage", name: "Cadrage & montage vidéo", short: "Cadrage & montage", desc: "Tournage, cadrage, étalonnage et montage de vos contenus.",
+      icon: '<svg ' + ICON_ATTR + '><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 10h5M16 10h5M3 14h5M16 14h5"/></svg>' },
+    { id: "motion-design", name: "Motion design & animation", short: "Motion design", desc: "Logos animés, génériques et vidéos animées.",
+      icon: '<svg ' + ICON_ATTR + '><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></svg>' }
+  ];
+  var OWNER = "Claude ALLOZOUNHOUE";
+  var SIGNATURE = "Mr Claudy";
+  var WA_NUMBER = "22997236386";
+  var WA_DISPLAY = "+229 97 23 63 86";
+  var MAIL = "claudeallozounhoue@gmail.com";
+  var WA_URL = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent("Bonjour, je vous contacte depuis votre portfolio.");
+  var DATA = window.PORTFOLIO_DATA || { items: {}, hero: false };
+
+  var openSet = {};
+  var sections = {};
+  var toastEl, toastTimer;
+
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        var v = attrs[k];
+        if (v === false || v == null) return;
+        if (k === "class") n.className = v;
+        else if (k === "text") n.textContent = v;
+        else n.setAttribute(k, v === true ? "" : v);
+      });
+    }
+    (kids || []).forEach(function (c) {
+      if (c == null) return;
+      n.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+    });
+    return n;
+  }
+  function icon(svg, cls) {
+    var s = el("span", { class: cls, "aria-hidden": "true" });
+    s.innerHTML = svg;
+    return s;
+  }
+  var PLAY_SVG = '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>';
+
+  function itemsOf(id) { return DATA.items[id] || []; }
+  function countLabel(n) {
+    if (!n) return "Bientôt";
+    return String(n).padStart(2, "0") + (n > 1 ? " réalisations" : " réalisation");
+  }
+
+  function render() {
+    var app = document.getElementById("app");
+    app.textContent = "";
+    app.appendChild(el("div", { class: "glow", "aria-hidden": "true" }));
+    var col = el("div", { class: "col" });
+
+    col.appendChild(el("nav", { class: "nav", "aria-label": "Navigation" }, [
+      el("span", { class: "brand" }, [el("span", { class: "dot", "aria-hidden": "true" }), el("span", { text: "Portfolio" })]),
+      el("a", { class: "btn small", href: WA_URL, target: "_blank", rel: "noopener noreferrer", text: "WhatsApp" })
+    ]));
+
+    var chips = el("div", { class: "chips" }, CATS.map(function (c) {
+      var b = el("button", { type: "button", class: "chip", text: c.short });
+      b.addEventListener("click", function () { openAndScroll(c.id); });
+      return b;
+    }));
+    var textCol = el("div", { class: "hero-text" }, [
+      el("p", { class: "eyebrow", text: "Portfolio" }),
+      el("div", { class: "name" }, [
+        el("h1", { "aria-label": OWNER }, [el("span", { text: "Claude" }), el("span", { class: "grad", text: "ALLOZOUNHOUE" })]),
+        el("p", { class: "byline", text: SIGNATURE })
+      ]),
+      el("p", { class: "lead", text: "Photographie, design graphique, montage vidéo et motion design. Choisissez un service pour voir mes réalisations, puis écrivez-moi directement sur WhatsApp." }),
+      chips,
+      el("div", { class: "cta" }, [
+        el("a", { class: "btn", href: WA_URL, target: "_blank", rel: "noopener noreferrer", text: "Écrire sur WhatsApp" }),
+        el("a", { class: "btn ghost", href: "mailto:" + MAIL, text: "Envoyer un e-mail" })
+      ])
+    ]);
+    var heroBox = el("div", { class: "hero-box", hidden: !DATA.hero });
+    if (DATA.hero) heroBox.appendChild(el("img", { class: "hero-photo", src: "img/hero.jpg", alt: OWNER + " au travail", decoding: "async" }));
+    col.appendChild(el("header", { class: "hero" + (DATA.hero ? " has-hero" : "") }, [textCol, heroBox]));
+
+    col.appendChild(el("p", { class: "rows-label", text: "Mes services" }));
+    var rows = el("div", { class: "rows" });
+    CATS.forEach(function (c) { rows.appendChild(buildRow(c)); });
+    col.appendChild(rows);
+    col.appendChild(buildContact());
+    app.appendChild(col);
+    app.appendChild(buildLightbox());
+    toastEl = el("div", { class: "toast", role: "status", "aria-live": "polite", hidden: true });
+    app.appendChild(toastEl);
+  }
+
+  function buildRow(c) {
+    var items = itemsOf(c.id);
+    var panelId = "panel-" + c.id;
+    var thumbItem = items.filter(function (i) { return i.type === "image"; })[0];
+    var kids = [
+      icon(c.icon, "row-ico"),
+      el("span", { class: "row-text" }, [
+        el("span", { class: "row-title", text: c.name }),
+        el("span", { class: "row-desc", text: c.desc }),
+        el("span", { class: "row-count", text: countLabel(items.length) })
+      ])
+    ];
+    if (thumbItem) kids.push(el("img", { class: "row-thumb", src: thumbItem.t, alt: "", loading: "lazy", decoding: "async" }));
+    kids.push(el("span", { class: "row-arrow", "aria-hidden": "true" }));
+    var head = el("button", { type: "button", class: "row-head", "aria-expanded": "false", "aria-controls": panelId }, kids);
+    var body = el("div", { class: "row-body", id: panelId, hidden: true });
+    var sec = el("section", { class: "row", id: "cat-" + c.id }, [el("h2", null, [head]), body]);
+    sections[c.id] = { cat: c, sec: sec, head: head, body: body, built: false };
+    head.addEventListener("click", function () { setOpen(c.id, !openSet[c.id]); });
+    return sec;
+  }
+
+  function setOpen(id, open) {
+    var r = sections[id];
+    if (!r) return;
+    if (open) openSet[id] = true; else delete openSet[id];
+    r.sec.classList.toggle("is-open", !!open);
+    r.head.setAttribute("aria-expanded", open ? "true" : "false");
+    r.body.hidden = !open;
+    if (open && !r.built) fillGrid(r);
+  }
+
+  function openAndScroll(id) {
+    setOpen(id, true);
+    var reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+    try { sections[id].sec.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); } catch (e) {}
+  }
+
+  var PAGE = 60;
+  function fillGrid(r) {
+    r.built = true;
+    var items = itemsOf(r.cat.id);
+    if (!items.length) {
+      r.body.appendChild(el("p", { class: "empty", text: "Les réalisations de cette catégorie arrivent bientôt. En attendant, écrivez-moi pour voir des exemples." }));
+      return;
+    }
+    var viewable = items.filter(function (i) { return i.type === "image"; });
+    var grid = el("div", { class: "grid" });
+    r.body.appendChild(grid);
+    var shown = 0;
+    var more = el("button", { type: "button", class: "btn ghost", text: "Voir plus" });
+    var moreWrap = el("div", { class: "more" }, [more]);
+    function addMore() {
+      items.slice(shown, shown + PAGE).forEach(function (it) {
+        var tile = el("figure", { class: "tile" });
+        if (it.type === "link") {
+          var host = "";
+          try { host = new URL(it.url).hostname.replace(/^www\./, ""); } catch (e) {}
+          tile.appendChild(el("a", { class: "tile-link", href: it.url, target: "_blank", rel: "noopener noreferrer" }, [
+            icon(PLAY_SVG, "play"),
+            el("span", { class: "tile-title", text: it.title || "Voir la vidéo" }),
+            el("span", { class: "tile-host", text: host })
+          ]));
+        } else {
+          var btn = el("button", { type: "button", class: "tile-btn", "aria-label": "Agrandir la photo" }, [
+            el("img", { src: it.t, alt: r.cat.name + " : réalisation", loading: "lazy", decoding: "async" })
+          ]);
+          btn.addEventListener("click", function () { openLb(viewable, viewable.indexOf(it), btn); });
+          tile.appendChild(btn);
+        }
+        grid.appendChild(tile);
+      });
+      shown = Math.min(items.length, shown + PAGE);
+      moreWrap.hidden = shown >= items.length;
+      more.textContent = "Voir plus (" + (items.length - shown) + " restantes)";
+    }
+    more.addEventListener("click", addMore);
+    r.body.appendChild(moreWrap);
+    addMore();
+  }
+
+  function buildContact() {
+    function item(label, text, copyLabel) {
+      var v = el("span", { class: "v", text: text });
+      var b = el("button", { type: "button", class: "btn ghost small", text: "Copier", "aria-label": copyLabel });
+      b.addEventListener("click", function () { copyText(text, v); });
+      return el("li", { class: "contact-item" }, [el("span", { class: "k", text: label }), v, b]);
+    }
+    return el("footer", { class: "contact" }, [
+      el("div", { class: "contact-card" }, [
+        el("h2", { text: "Parlons de votre projet" }),
+        el("p", { text: "Indiquez le service qui vous intéresse, la date souhaitée et quelques mots sur votre besoin." }),
+        el("div", { class: "cta" }, [
+          el("a", { class: "btn", href: WA_URL, target: "_blank", rel: "noopener noreferrer", text: "Écrire sur WhatsApp" }),
+          el("a", { class: "btn ghost", href: "mailto:" + MAIL, text: "Envoyer un e-mail" })
+        ]),
+        el("ul", { class: "contact-list" }, [
+          item("WhatsApp", WA_DISPLAY, "Copier le numéro WhatsApp"),
+          item("E-mail", MAIL, "Copier l’adresse e-mail")
+        ])
+      ])
+    ]);
+  }
+
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.hidden = true; }, 2200);
+  }
+  function selectNode(node) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(node);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+  function copyText(text, node) {
+    var fail = function () { selectNode(node); toast("Texte sélectionné, copiez-le à la main"); };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { toast("Copié"); }, fail);
+      } else fail();
+    } catch (e) { fail(); }
+  }
+
+  /* Lightbox */
+  var lb, lbStage, lbCount, lbPrev, lbNext, lbClose, lbList = [], lbIdx = 0, lbOpener = null, touchX = null;
+  function buildLightbox() {
+    lbStage = el("div", { class: "lb-stage" });
+    lbCount = el("p", { class: "lb-count" });
+    lbClose = el("button", { type: "button", class: "lb-close", "aria-label": "Fermer", text: "✕" });
+    lbPrev = el("button", { type: "button", class: "lb-prev", "aria-label": "Précédent", text: "‹" });
+    lbNext = el("button", { type: "button", class: "lb-next", "aria-label": "Suivant", text: "›" });
+    lb = el("div", { class: "lb", hidden: true, role: "dialog", "aria-modal": "true", "aria-label": "Aperçu" }, [lbStage, lbClose, lbPrev, lbNext, lbCount]);
+    lbClose.addEventListener("click", closeLb);
+    lbPrev.addEventListener("click", function () { stepLb(-1); });
+    lbNext.addEventListener("click", function () { stepLb(1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target === lbStage) closeLb(); });
+    lb.addEventListener("touchstart", function (e) { touchX = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+    lb.addEventListener("touchend", function (e) {
+      if (touchX == null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 50) stepLb(dx < 0 ? 1 : -1);
+    }, { passive: true });
+    return lb;
+  }
+  function openLb(list, i, opener) {
+    lbList = list; lbIdx = Math.max(0, i); lbOpener = opener;
+    lb.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    showLb();
+    lbClose.focus();
+  }
+  function showLb() {
+    var it = lbList[lbIdx];
+    lbStage.textContent = "";
+    if (!it) return;
+    lbStage.appendChild(el("img", { src: it.f, alt: "" }));
+    var multi = lbList.length > 1;
+    lbPrev.hidden = !multi; lbNext.hidden = !multi;
+    lbCount.textContent = multi ? (lbIdx + 1) + " / " + lbList.length : "";
+    [1, -1].forEach(function (d) {
+      var n = lbList[(lbIdx + d + lbList.length) % lbList.length];
+      if (n && n !== it) { var p = new Image(); p.src = n.f; }
+    });
+  }
+  function stepLb(d) {
+    if (lbList.length < 2) return;
+    lbIdx = (lbIdx + d + lbList.length) % lbList.length;
+    showLb();
+  }
+  function closeLb() {
+    lbStage.textContent = "";
+    lb.hidden = true;
+    document.documentElement.style.overflow = "";
+    if (lbOpener && lbOpener.focus) lbOpener.focus();
+  }
+  document.addEventListener("keydown", function (e) {
+    if (!lb || lb.hidden) return;
+    if (e.key === "Escape") closeLb();
+    else if (e.key === "ArrowLeft") stepLb(-1);
+    else if (e.key === "ArrowRight") stepLb(1);
+  });
+
+  render();
+})();
+
+</script>
+</body>
+</html>
